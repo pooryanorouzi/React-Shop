@@ -1,0 +1,14 @@
+export { Category } from "./Category/Category.page";
+export { Categories } from "./Categories/Categories.page";
+export { Home } from "./Home/Home.page";
+export { SignIn } from "./SignIn/SignIn.page";
+export { Popular } from "./Popular/Popular.page";
+export { Products } from "./Dashboard/components/Products/Products.component";
+export { Quantity } from "./Dashboard/components/Quantity/Quantity.component";
+export { Orders } from "./Dashboard/components/Orders/Orders.component";
+export { Shopping } from "./Shopping/Shopping.page";
+export { NotFound } from "./NotFound/NotFound.page";
+export { FinalPayment } from "./FinalPayment/FinalPayment.page";
+export { Payment } from "./Payment/Payment.page";
+export { Cards } from "components";
+export { Item } from "./Item/Item.page";

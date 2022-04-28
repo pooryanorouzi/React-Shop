@@ -1,0 +1,195 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>صفحه پرداخت</title>
+    <link rel="shortcut icon" href="grocery-cart.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/styles/index.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body>
+    <div class="w-4/5 mx-44">
+      <div class="flex items-center justify-between">
+        <img src="./assets/images/logo-blue.svg" alt="Logo" class="w-28" />
+        <p class="text-xl text-gray-600">درگاه پرداخت اینترنتی پارسیان</p>
+        <img
+          src="./assets/images/Logo-parsian.png"
+          alt="parsian"
+          class="w-28"
+        />
+      </div>
+      <div class="flex">
+        <div class="border rounded w-3/5 h-auto mt-7 shadow">
+          <div
+            class="flex items-center bg-[#2B3773] text-white pr-3 py-1 rounded-t"
+          >
+            <span class="ml-1">
+              <BsCreditCardFill />
+            </span>
+            <span class="mt-[2px]">اطلاعات کارت</span>
+          </div>
+          <form class="mx-5 my-7" onSubmit="{handleSubmit}">
+            <label htmlFor="card-number">
+              <span class="ml-3">شماره کارت</span>
+              <input
+                type="text"
+                class="rounded border mr-12 py-1 px-2 w-4/5 text-gray-600 focus:outline-gray-300"
+                maxlength="16"
+              />
+            </label>
+            <label htmlFor="card-number" class="flex mt-4">
+              <span class="mt-1 -ml-1"> CVV2 </span>
+              <input
+                type="text"
+                class="rounded w-4/5 mr-24 border py-1 px-2 text-gray-600 focus:outline-gray-300"
+              />
+            </label>
+            <label htmlFor="card-number" class="flex mt-4 items-center">
+              <span class="ml-5"> تاریخ انقضا </span>
+              <input
+                type="text"
+                class="rounded w-56 py-1 border mr-12 px-2 text-gray-600 focus:outline-gray-300"
+                placeholder="ماه"
+              />
+              <span class="mr-4 text-2xl text-gray-500">/</span>
+              <input
+                type="text"
+                class="rounded w-56 py-1 border mr-4 px-2 text-gray-600 focus:outline-gray-300"
+                placeholder="سال"
+              />
+            </label>
+            <label htmlFor="card-number" class="flex mt-4">
+              <span class="ml-4"> کد امنیتی </span>
+              <input
+                type="text"
+                class="rounded px-2 w-4/5 border mr-[3.5rem] py-1 text-gray-600 focus:outline-gray-300"
+              />
+            </label>
+            <label htmlFor="card-number" class="flex mt-4">
+              <span class="ml-3 mt-1"> رمز دوم </span>
+              <input
+                type="password"
+                class="rounded w-3/5 border mr-16 px-2 py-1 text-gray-600 focus:outline-gray-300"
+              />
+              <button
+                class="bg-green-500 text-white px-3 py-2 rounded-lg shadow-lg mr-3"
+                onClick="{handleSendCode}"
+              >
+                درخواست رمز پویا
+              </button>
+            </label>
+            <label
+              htmlFor="card-number"
+              class="flex items-center mt-4 text-gray-600"
+            >
+              <span class="ml-5"> ایمیل (اختیاری) </span>
+              <input
+                type="text"
+                class="rounded py-1 border mr-3 px-2 w-4/5 text-gray-600 focus:outline-gray-300"
+              />
+            </label>
+            <!-- <button
+              class="bg-green-500 text-white rounded py-2 w-2/5 mt-7 shadow-lg mr-28 font-bold text-lg"
+              id="successBtn"
+            >
+              پرداخت
+            </button>
+            <button
+              href="http://localhost:3000/payment-gateway?status=failed"
+              class="bg-yellow-500 mr-5 text-white py-2 rounded w-2/5 shadow-lg font-bold text-lg"
+              id="failedBtn"
+            >
+              انصراف
+            </button> -->
+            <div class="mt-12 mr-5">
+              <a
+                href="http://localhost:3000/payment-result?status=success"
+                class="bg-green-500 text-white rounded py-2 px-24 mt-7 shadow-lg mr-28 font-bold text-lg"
+                >پرداخت</a
+              >
+              <a
+                href="http://localhost:3000/payment-result?status=failed"
+                class="bg-yellow-500 mr-5 text-white py-2 px-24 rounded shadow-lg font-bold text-lg"
+                >انصراف</a
+              >
+            </div>
+          </form>
+        </div>
+        <div class="mr-5 w-2/5 border shadow-sm mt-7 h-[25.5rem] rounded">
+          <div
+            class="flex items-center justify-between bg-[#2B3773] text-white px-3 py-1 rounded-t"
+          >
+            <div class="flex items-center">
+              <span class="ml-1 text-xl">
+                <AiOutlineFieldTime />
+              </span>
+              <span class="mt-[2px]"> زمان باقی مانده </span>
+            </div>
+            <p id="countdown"></p>
+          </div>
+          <p class="text-center mt-10 mb-3 font-bold text-xl">
+            اطلاعات پذیرنده
+          </p>
+          <hr />
+          <div class="my-5 pr-3 text-gray-600 text-sm flex items-center">
+            <p>نام فروشگاه:</p>
+            <p class="mr-32">فروشگاه سان پلاس</p>
+          </div>
+          <hr />
+          <div class="my-5 pr-3 text-gray-600 text-sm flex items-center">
+            <p>آدرس فروشگاه:</p>
+            <p class="mr-28">http://localhost:3000</p>
+          </div>
+          <hr />
+          <div class="my-5 pr-3 text-gray-600 text-sm flex items-center">
+            <p>نام پرداخت کننده:</p>
+            <p class="mr-28" id="customerName"></p>
+          </div>
+          <hr />
+          <div class="my-5 pr-3 text-gray-600 text-sm flex items-center">
+            <p>کد پذیرنده:</p>
+            <p class="mr-32">233957896</p>
+          </div>
+          <hr />
+          <div
+            class="bg-green-900 mt-10 text-white flex items-center font-light justify-evenly py-2"
+          >
+            <p class="font-light text-sm">مبلغ قابل پرداخت (ریال) :</p>
+            <p class="font-light text-sm" id="totalPrice"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function numberWithCommas(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      const url = window.location.href;
+      const urlParams = new URL(url).searchParams;
+      let customerName = urlParams.get("customerName");
+      let totalPrice = urlParams.get("totalPrice");
+      document.getElementById("customerName").innerHTML = customerName;
+      document.getElementById("totalPrice").innerHTML = numberWithCommas(totalPrice);
+
+      // countdown
+      let countDownDate = new Date().getTime() + 15 * 60 * 1000;
+      let x = setInterval(function () {
+        let now = new Date().getTime();
+        let distance = countDownDate - now;
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML =
+          minutes + ":" + seconds;
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "اتمام مهلت پرداخت";
+          window.location.replace(
+            "http://localhost:3000/payment-gateway?status=failed"
+          );
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

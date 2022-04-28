@@ -1,0 +1,16 @@
+export const PATHS = {
+  DASHBOARD: "/dashboard",
+  SIGN_IN: "/sign-in",
+  HOME: "/",
+  CATEGORY: "/category",
+  CATEGORY_CATEGORY_LIST: "/category/:categorylist",
+  CATEGORY_CATEGORY_LIST_ITEM: "/category/:categorylist/:productID",
+  POPULAR: "/popular-products",
+  POPULAR_PRODID: "/popular-products/:productID",
+  PANEL_PRODUCTS: "panel-products",
+  PANEL_QUANTITY: "panel-quantity",
+  PANEL_ORDERS: "panel-orders",
+  SHOPPING: "/shopping-bag",
+  PAYMENT: "/payment-result",
+  FINAL_PAYMENT: "/final-payment",
+};

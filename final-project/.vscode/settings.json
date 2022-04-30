@@ -1,0 +1,5 @@
+{
+  "editor.fontFamily": "Consolas,Vazir",
+  "editor.inlayHints.fontFamily": "Vazir",
+  "auto-rename-tag.activationOnLanguage": ["*"]
+}
